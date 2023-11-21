@@ -1,17 +1,19 @@
 {
-    "name": "hpdav/backend",
+    "name": "jgas4/backend",
     "autoload": {
         "psr-4": {
             "Database\\" : "src/database",
             "Model\\" : "src/model",
-            "Controller" : "src/controller"
+            "Controller\\" : "src/controller"
         }
     },
     "authors": [
         {
-            "name": "João Gabriel",
-            "email": "joao.alves1@mail.uft.edu.br"
+            "name": "João Gabriel Alves de Souza",
+            "email": "jgas47855@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/dotenv": "^6.0"
+    }
 }
