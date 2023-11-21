@@ -1,0 +1,17 @@
+{
+    "name": "hpdav/backend",
+    "autoload": {
+        "psr-4": {
+            "Database\\" : "src/database",
+            "Model\\" : "src/model",
+            "Controller" : "src/controller"
+        }
+    },
+    "authors": [
+        {
+            "name": "João Gabriel",
+            "email": "joao.alves1@mail.uft.edu.br"
+        }
+    ],
+    "require": {}
+}
