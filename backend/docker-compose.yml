@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+    - POSTGRES_PASSWORD=$DBPASSWORD
+    - POSTGRES_USER=$DBUSERNAME
+    - POSTGRES_DB=$DBNAME
+    ports:
+      - $DBPORT:$DBPORT
+  # backend:
+    # build: .
+    # command: "php -S localhost:8000"
+    # restart: always
+    # ports:
+      # - $BACKENDPORT:$BACKENDPORT
+      # depends_on: db

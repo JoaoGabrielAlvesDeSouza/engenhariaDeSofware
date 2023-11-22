@@ -8,19 +8,27 @@ Class userController {
 
         $data = json_decode ($jsonObject , true);
 
-        if (isset ($data ["userName"]) && isset ($data ["userPassword"]) && isset ($data ["userEmail"])) {
-            $result = $user -> signup ($data ["userName"] , $data ["userPassword"] , $data ["userEmail"]);
+        if ($data ["userName"] != null && $data ["userPassword"] != null && $data ["userEmail"] != null) {
+            if (strlen ($data ["userName"]) > 3 && strlen ($data ["userPassword"]) >= 8 && strlen ($data ["userEmail"]) >= 8) {
+                $result = $user -> signup ($data ["userName"] , $data ["userPassword"] , $data ["userEmail"]);
 
-            if (isset ($result [0])) {
+                if (isset ($result [0])) {
+                    $data = [
+                        "response" => "user created successfully"
+                    ];
+    
+                    return json_encode ($data);
+                }
+            } else {
                 $data = [
-                    "response" => "user created successfully"
+                    "response" => "some credential is empty or smaller than minimu limit"
                 ];
-
+    
                 return json_encode ($data);
             }
         } else {
             $data = [
-                "response" => "credentials invalid or null"
+                "response" => "some credential is null"
             ];
 
             return json_encode ($data);
@@ -51,6 +59,20 @@ Class userController {
             ];
 
             return json_encode ($data);
+        }
+
+    }
+
+    function deleteUser ($jsonObject) {
+        $user = new userModel ();
+
+        $data = json_decode ($jsonObject , true);
+
+        if (isset ($data ["userEmail"])) {
+            $user -> deleteuser ($data ["userEmail"]);
+            return 1;
+        } else {
+            return 0;
         }
 
     }
