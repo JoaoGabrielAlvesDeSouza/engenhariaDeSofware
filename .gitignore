@@ -1,3 +1,3 @@
-./backend/vendor
-./frontend/vendor
+/backend/vendor/
+/frontend/vendor/
 .env
